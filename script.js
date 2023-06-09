@@ -50,7 +50,7 @@ function rot13(encodedStr) {
  
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
  
-// console.log(rot13("SERR YBIR? NPPVBWBO"));
+//console.log(rot13("SERR YBIR? NPPVBWBO"));
  
 // module.exports = rot13;
 window.rot13 = rot13;
