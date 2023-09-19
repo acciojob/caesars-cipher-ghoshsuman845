@@ -1,28 +1,46 @@
-function rot13(str) {
-  // Create a string of all uppercase letters.
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lookup = {
+  A: "N",
+  B: "O",
+  C: "P",
+  D: "Q",
+  E: "R",
+  F: "S",
+  G: "T",
+  H: "U",
+  I: "V",
+  J: "W",
+  K: "X",
+  L: "Y",
+  M: "Z",
+  N: "A",
+  O: "B",
+  P: "C",
+  Q: "D",
+  R: "E",
+  S: "F",
+  T: "G",
+  U: "H",
+  V: "I",
+  W: "J",
+  X: "K",
+  Y: "L",
+  Z: "M",
+  "?": "?",
+  ",": ",",
+};
 
-  // Create a new string to hold the decoded text.
-  let decoded = "";
-
-  // Loop through each character in the input string.
-  for (let i = 0; i < str.length; i++) {
-    // Check if the character is a letter.
-    if (alphabet.includes(str[i])) {
-      // Get the index of the character in the alphabet.
-      let index = alphabet.indexOf(str[i]);
-
-      // Shift the index by 13 places.
-      index = (index + 13) % 26;
-
-      // Get the character at the shifted index.
-      decoded += alphabet[index];
+function rot13(encodedStr) {
+  let decodedArr = [];
+  for (let i = 0; i < encodedStr.length; i++) {
+    const char = encodedStr[i];
+    if (lookup.hasOwnProperty(char)) {
+      decodedArr.push(lookup[char]);
     } else {
-      // The character is not a letter, so just append it to the decoded string.
-      decoded += str[i];
+      decodedArr.push(char);
     }
   }
-
-  // Return the decoded string.
-  return decoded;
+  return decodedArr.join('');
 }
+
+// You can test the function with your example:
+console.log(rot13("SERR YBIR? NPPVBWBO"));
